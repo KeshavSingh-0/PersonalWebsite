@@ -13,7 +13,7 @@
   /* Colors */
   --ink:       #0B0E15;   /* page background — "Obsidian Cobalt" */
   --panel:     #171C28;   /* cards & raised surfaces — "Graphite Slate" */
-  --chalk:     #C1D2F3;   /* main text — "Warm Chalk" */
+  --chalk:     #F3F0E9;   /* main text — "Warm Chalk" */
   --cobalt:    #1A4AAD;   /* solid accent fills — "Signal Cobalt" */
   --bright:    #4D82F0;   /* links & thin lines — "Bright Cobalt" */
   --beacon:    #E2722B;   /* hovers & highlights — "Burnt Beacon" */
@@ -34,9 +34,9 @@
   --s6: 96px;
 
   /* Corner rounding */
-  --r-panel: 1px;
-  --r-btn:   1px;
-  --r-pill:  px;
+  --r-panel: 8px;
+  --r-btn:   6px;
+  --r-pill:  999px;
 
   /* Width of the centered content column */
   --measure: 1180px;
@@ -132,15 +132,11 @@ p { max-width: 60ch; }
 }
 
 .nav__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.0625rem;
   letter-spacing: -0.01em;
 }
-
 .nav__brand span {
   font-family: var(--font-mono);
   font-weight: 400;
@@ -186,12 +182,6 @@ p { max-width: 60ch; }
   border-radius: var(--r-btn);
   padding: 8px 14px;
   cursor: pointer;
-}
-
-.nav__logo{
-  height: 24px;
-  width: auto;
-  display: block;
 }
 
 /* ---------- 6. MOBILE MENU OVERLAY ---------- */
@@ -348,16 +338,16 @@ p { max-width: 60ch; }
   gap: var(--s3);
   padding-block: var(--s4);
   border-bottom: 1px solid var(--hairline);
-  transition: background 0.22s ease;
+  transition: padding-left 0.22s ease, background 0.22s ease;
 }
-.portal__row:hover {background: var(--panel); }
+.portal__row:hover { padding-left: var(--s3); background: var(--panel); }
 .portal__num { font-family: var(--font-mono); font-size: 0.875rem; color: var(--grey); }
 .portal__title {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.75rem, 5vw, 2.75rem);
   letter-spacing: -0.02em;
-  transition: color 0.18s;
+  transition: color 0.18s ease;
 }
 .portal__row:hover .portal__title { color: var(--beacon); }
 .portal__meta { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); }
@@ -365,7 +355,7 @@ p { max-width: 60ch; }
 /* ---------- ABOUT modules ---------- */
 .module { margin-bottom: var(--s5); }
 .module__head { display: flex; align-items: baseline; gap: var(--s2); margin-bottom: var(--s3); }
-.module__num { font-family: var(--font-mono); color: var(--bright); font-size: 1.25rem; }
+.module__num { font-family: var(--font-mono); color: var(--bright); font-size: 0.875rem; }
 
 .entry {
   display: grid;
@@ -377,48 +367,8 @@ p { max-width: 60ch; }
 .entry__when { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); }
 .entry__role { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
 .entry__place { color: var(--bright); font-size: 0.95rem; }
-.entry__location { color: var(--beacon); font-size: 0.75rem; }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s2); }
-
-/* ---------- About page photos ---------- */
-.photo {
-  position: relative;
-  aspect-ratio: 3 / 2;          /* default shape — see modifiers below */
-  background: var(--panel);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-panel);
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: var(--s2);
-  margin: 0;                    /* <figure> adds default margins; remove them */
-}
-.photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* fills the box without stretching */
-}
-.photo figcaption {
-  position: relative;          /* the placeholder label */
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--grey);
-}
-
-/* Optional shape tweaks — add the class to a .photo to change its shape */
-.photo--tall   { aspect-ratio: 4 / 5; }
-.photo--square { aspect-ratio: 1 / 1; }
-
-/* A row of photos side by side (stacks on phones via the rule below) */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--s2);
-  margin-top: var(--s3);
-}
 
 /* ---------- PROJECTS ---------- */
 .proj-grid {
@@ -560,8 +510,6 @@ p { max-width: 60ch; }
   .log,
   .footer__inner { grid-template-columns: 1fr; }
 
-  .photo-grid { grid-template-columns: 1fr; }
-
   .proj-grid > .project:nth-child(1) { grid-column: auto; }
 
   .portal__row { grid-template-columns: 48px 1fr; }
@@ -571,37 +519,6 @@ p { max-width: 60ch; }
   .timeline { border-left: 0; margin-left: 0; }
 
   .section { padding-block: var(--s5); }
-}
-
-/* ---------- Darkened photo backgrounds ----------
-   Add class "photo-bg" to any box, then set the image inline:
-     style="--bg: url('../assets/your-photo.jpg')"
-   The dark gradient on top keeps text readable.
-   Make photos lighter/darker by lowering/raising the two alpha
-   values below (0.78 and 0.99). 0 = fully visible, 1 = fully black. */
-.photo-bg {
-  background-color: var(--panel);                 /* shows if no image is set yet */
-  background-image:
-    linear-gradient(rgba(11, 14, 21, 0.78), rgba(11, 14, 21, 0.99)),
-    var(--bg, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.entry.entry--card {
-  padding: var(--s4);
-  border: 1px solid var(--hairline);   /* replaces the divider line */
-  border-radius: var(--r-panel);
-  margin-bottom: var(--s2);
-}
-
-/* Turns an open About module into a padded, rounded box so the
-   photo has a frame to sit inside. Use it alongside "photo-bg". */
-.framed {
-  padding: var(--s4);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-panel);
 }
 
 /* ---------- Accessibility niceties ---------- */
