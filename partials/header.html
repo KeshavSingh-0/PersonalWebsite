@@ -1,0 +1,33 @@
+<!-- =====================================================================
+     header.html  —  THE navbar for the whole site (single source of truth)
+     ---------------------------------------------------------------------
+     Edit the nav once here and it updates on every page automatically.
+     - "Keshav Singh" below is your brand text.
+     - Links point at sibling files inside the /pages folder.
+     ===================================================================== -->
+<header class="nav">
+  <div class="nav__inner">
+    <!-- Brand / your name -->
+    <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
+
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="news.html">News</a>
+    </nav>
+
+    <button class="nav__toggle" aria-label="Open menu">menu</button>
+  </div>
+</header>
+
+<!-- Fullscreen menu shown on phones -->
+<div class="overlay" data-open="false">
+  <button class="overlay__close" aria-label="Close menu">close</button>
+  <a href="index.html"><span class="overlay__index">01</span>Home</a>
+  <a href="about.html"><span class="overlay__index">02</span>About</a>
+  <a href="projects.html"><span class="overlay__index">03</span>Projects</a>
+  <a href="resume.html"><span class="overlay__index">04</span>Resume</a>
+  <a href="news.html"><span class="overlay__index">05</span>News</a>
+</div>
