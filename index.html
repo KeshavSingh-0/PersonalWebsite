@@ -2,137 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This tiny file just forwards visitors to your real home page.
+       It lives at the root so your live site works at the plain address
+       (e.g. yoursite.com). You don't need to edit it. -->
+  <meta http-equiv="refresh" content="0; url=pages/index.html" />
+  <link rel="canonical" href="pages/index.html" />
   <title>Keshav Singh — Portfolio</title>
-
-  <!-- Google Fonts: Bricolage Grotesque (headings), Hanken Grotesk (body), JetBrains Mono (labels) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ============================================================
-       NAVBAR — identical on every page, but you can customize the links and text
-       ============================================================ -->
-  <header class="nav">
-    <div class="nav__inner">
-      <!-- Change your name / brand text here -->
-      <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
-
-      <nav class="nav__links" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="news.html">News</a>
-      </nav>
-
-      <button class="nav__toggle" aria-label="Open menu">menu</button>
-    </div>
-  </header>
-
-  <!-- Fullscreen menu that appears on phones -->
-  <div class="overlay" data-open="false">
-    <button class="overlay__close" aria-label="Close menu">close</button>
-    <a href="index.html"><span class="overlay__index">01</span>Home</a>
-    <a href="about.html"><span class="overlay__index">02</span>About</a>
-    <a href="projects.html"><span class="overlay__index">03</span>Projects</a>
-    <a href="resume.html"><span class="overlay__index">04</span>Resume</a>
-    <a href="news.html"><span class="overlay__index">05</span>News</a>
-  </div>
-
-  <main>
-
-    <!-- ===================== HERO ===================== -->
-    <section class="hero wrap">
-      <p class="folio">Computer Science · Data Science · UT Austin</p>
-      <div class="hero__grid">
-        <div>
-          <!-- Your name. The part inside <em> is the colored line. -->
-          <h1 class="hero__name">Keshav<br><em>Singh</em></h1>
-
-          <!-- Three-sentence intro. Keep it sharp and personal. -->
-          <p class="hero__hook">
-            I'm a third-year CS student at UT Austin who likes <b>data</b> a little more than it likes me back.
-            I build small, careful tools that turn messy numbers into something a person can actually read.
-            Right now I'm hunting for a summer internship where I get to break things and then fix them better.
-          </p>
-        </div>
-
-        <!-- PORTRAIT PLACEHOLDER -->
-        <div class="portrait">
-          <!-- To use a real photo: uncomment the <img> line below and point
-               src at your image (e.g. images/portrait.jpg), then delete the <span>. -->
-          <!-- <img src="images/portrait.jpg" alt="Keshav Singh" /> -->
-          <span>[ your portrait — 4:5 ratio ]</span>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ===================== DIRECTORY PORTAL ===================== -->
-    <section class="section wrap">
-      <p class="folio">Index — where to next</p>
-      <div class="portal" style="margin-top: var(--s4);">
-
-        <a class="portal__row" href="about.html">
-          <span class="portal__num">01</span>
-          <span class="portal__title">About</span>
-          <span class="portal__meta">the long version</span>
-        </a>
-
-        <a class="portal__row" href="projects.html">
-          <span class="portal__num">02</span>
-          <span class="portal__title">Projects</span>
-          <span class="portal__meta">things I built</span>
-        </a>
-
-        <a class="portal__row" href="resume.html">
-          <span class="portal__num">03</span>
-          <span class="portal__title">Resume</span>
-          <span class="portal__meta">one PDF, no fluff</span>
-        </a>
-
-        <a class="portal__row" href="news.html">
-          <span class="portal__num">04</span>
-          <span class="portal__title">News</span>
-          <span class="portal__meta">recent happenings</span>
-        </a>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ FOOTER (identical on every page) ============ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div>
-        <p class="folio">Let's talk</p>
-        <p class="footer__big">Always up for a good problem.<br>Say hello.</p>
-      </div>
-      <div class="footer__col">
-        <h4>Contact</h4>
-        <a href="mailto:&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;">&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;</a>
-        <a href="mailto:&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>
-        <a href="resume.html">Resume (PDF)</a>
-      </div>
-      <div class="footer__col">
-        <h4>Elsewhere</h4>
-        <a href="https://github.com/KeshavSingh-0">GitHub</a>
-        <a href="https://www.linkedin.com/in/keshav-singh-74254b288">LinkedIn</a>
-      </div>
-    </div>
-    <div class="footer__base">
-      <span>© 2026 Keshav Singh</span>
-      <span>San Antonio, TX & Austin, TX·</span>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
+  <p>Taking you to the portfolio… <a href="pages/index.html">click here</a> if nothing happens.</p>
 </body>
 </html>

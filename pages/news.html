@@ -8,33 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- ============ NAVBAR (identical on every page) ============ -->
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
-      <nav class="nav__links" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="news.html">News</a>
-      </nav>
-      <button class="nav__toggle" aria-label="Open menu">menu</button>
-    </div>
-  </header>
-  <div class="overlay" data-open="false">
-    <button class="overlay__close" aria-label="Close menu">close</button>
-    <a href="index.html"><span class="overlay__index">01</span>Home</a>
-    <a href="about.html"><span class="overlay__index">02</span>About</a>
-    <a href="projects.html"><span class="overlay__index">03</span>Projects</a>
-    <a href="resume.html"><span class="overlay__index">04</span>Resume</a>
-    <a href="news.html"><span class="overlay__index">05</span>News</a>
-  </div>
+  <div id="site-header"></div>
 
   <main class="wrap">
 
@@ -110,31 +88,8 @@
 
   </main>
 
-  <!-- ============ FOOTER (identical on every page) ============ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div>
-        <p class="folio">Let's talk</p>
-        <p class="footer__big">Always up for a good problem.<br>Say hello.</p>
-      </div>
-      <div class="footer__col">
-        <h4>Contact</h4>
-        <a href="mailto:&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;">&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;</a>
-        <a href="mailto:&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>
-        <a href="resume.html">Resume (PDF)</a>
-      </div>
-      <div class="footer__col">
-        <h4>Elsewhere</h4>
-        <a href="https://github.com/KeshavSingh-0">GitHub</a>
-        <a href="https://www.linkedin.com/in/keshav-singh-74254b288">LinkedIn</a>
-      </div>
-    </div>
-    <div class="footer__base">
-      <span>© 2026 Keshav Singh</span>
-      <span>San Antonio, TX & Austin, TX·</span>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <script src="main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
