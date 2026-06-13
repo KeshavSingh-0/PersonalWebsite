@@ -550,6 +550,8 @@ p { max-width: 60ch; }
   .log,
   .footer__inner { grid-template-columns: 1fr; }
 
+  .photo-grid { grid-template-columns: 1fr; }
+
   .proj-grid > .project:nth-child(1) { grid-column: auto; }
 
   .portal__row { grid-template-columns: 48px 1fr; }
@@ -559,6 +561,30 @@ p { max-width: 60ch; }
   .timeline { border-left: 0; margin-left: 0; }
 
   .section { padding-block: var(--s5); }
+}
+
+/* ---------- Darkened photo backgrounds ----------
+   Add class "photo-bg" to any box, then set the image inline:
+     style="--bg: url('../assets/your-photo.jpg')"
+   The dark gradient on top keeps text readable.
+   Make photos lighter/darker by lowering/raising the two alpha
+   values below (0.78 and 0.90). 0 = fully visible, 1 = fully black. */
+.photo-bg {
+  background-color: var(--panel);                 /* shows if no image is set yet */
+  background-image:
+    linear-gradient(rgba(11, 14, 21, 0.78), rgba(11, 14, 21, 0.90)),
+    var(--bg, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Turns an open About module into a padded, rounded box so the
+   photo has a frame to sit inside. Use it alongside "photo-bg". */
+.framed {
+  padding: var(--s4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-panel);
 }
 
 /* ---------- Accessibility niceties ---------- */
