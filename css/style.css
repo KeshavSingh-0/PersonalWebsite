@@ -572,11 +572,18 @@ p { max-width: 60ch; }
 .photo-bg {
   background-color: var(--panel);                 /* shows if no image is set yet */
   background-image:
-    linear-gradient(rgba(11, 14, 21, 0.78), rgba(11, 14, 21, 0.90)),
+    linear-gradient(rgba(11, 14, 21, 0.78), rgba(11, 14, 21, 0.99)),
     var(--bg, none);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.entry.entry--card {
+  padding: var(--s4);
+  border: 1px solid var(--hairline);   /* replaces the divider line */
+  border-radius: var(--r-panel);
+  margin-bottom: var(--s2);
 }
 
 /* Turns an open About module into a padded, rounded box so the
