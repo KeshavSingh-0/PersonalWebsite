@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Keshav Singh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR (identical on every page) ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="news.html">News</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Open menu">menu</button>
+    </div>
+  </header>
+  <div class="overlay" data-open="false">
+    <button class="overlay__close" aria-label="Close menu">close</button>
+    <a href="index.html"><span class="overlay__index">01</span>Home</a>
+    <a href="about.html"><span class="overlay__index">02</span>About</a>
+    <a href="projects.html"><span class="overlay__index">03</span>Projects</a>
+    <a href="resume.html"><span class="overlay__index">04</span>Resume</a>
+    <a href="news.html"><span class="overlay__index">05</span>News</a>
+  </div>
+
+  <main class="wrap">
+
+    <section class="section--tight">
+      <p class="folio">Selected work · click any card to open</p>
+      <h2 style="margin-top: var(--s2); max-width: 16ch;">Stuff I built and learned from.</h2>
+    </section>
+
+    <!-- =====================================================
+         PROJECT GRID
+         To add a project: copy one whole <article class="project">
+         block and edit the name, dates, description, tags, and links.
+         The +/- open-and-close behavior works automatically.
+         ===================================================== -->
+    <section class="section--tight" style="padding-top: 0;">
+      <div class="proj-grid">
+
+        <!-- ---- Project 1 (this first one is intentionally wide) ---- -->
+        <article class="project">
+          <button class="project__toggle" aria-expanded="false">
+            <span>
+              <span class="project__name">Tempo</span>
+            </span>
+            <span style="display:flex; align-items:center; gap: var(--s3);">
+              <span class="project__when">2025</span>
+              <span class="project__sign">+</span>
+            </span>
+          </button>
+          <div class="project__detail">
+            <div class="project__detail-inner">
+              <p>
+                A study-rhythm tracker that watches how long you actually focus versus how long
+                you think you focus. Won 2nd place at HackTX. The honest insight: most people
+                overestimate their focus by about 40%, and the app gently calls them on it.
+              </p>
+              <div class="tag-row">
+                <span class="pill">Python</span>
+                <span class="pill">FastAPI</span>
+                <span class="pill">React</span>
+                <span class="pill">SQLite</span>
+              </div>
+              <div class="project__links">
+                <a class="btn btn--solid" href="https://github.com/yourname/tempo">Source code →</a>
+                <a class="btn btn--ghost" href="https://yourname.github.io/tempo">Live demo →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---- Project 2 ---- -->
+        <article class="project">
+          <button class="project__toggle" aria-expanded="false">
+            <span>
+              <span class="project__name">Greenline</span>
+            </span>
+            <span style="display:flex; align-items:center; gap: var(--s3);">
+              <span class="project__when">2024</span>
+              <span class="project__sign">+</span>
+            </span>
+          </button>
+          <div class="project__detail">
+            <div class="project__detail-inner">
+              <p>
+                A small model that predicts Austin bus delays from weather and time of day.
+                It's right about two times out of three, which is roughly two times better
+                than my own guessing.
+              </p>
+              <div class="tag-row">
+                <span class="pill">Python</span>
+                <span class="pill">scikit-learn</span>
+                <span class="pill">Pandas</span>
+              </div>
+              <div class="project__links">
+                <a class="btn btn--solid" href="https://github.com/yourname/greenline">Source code →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---- Project 3 ---- -->
+        <article class="project">
+          <button class="project__toggle" aria-expanded="false">
+            <span>
+              <span class="project__name">Marginalia</span>
+            </span>
+            <span style="display:flex; align-items:center; gap: var(--s3);">
+              <span class="project__when">2024</span>
+              <span class="project__sign">+</span>
+            </span>
+          </button>
+          <div class="project__detail">
+            <div class="project__detail-inner">
+              <p>
+                A command-line tool that pulls every highlight out of my e-reader and turns
+                them into a searchable archive. Built it because I kept losing good quotes.
+                Now I lose them in a much more organized way.
+              </p>
+              <div class="tag-row">
+                <span class="pill">Go</span>
+                <span class="pill">SQLite</span>
+                <span class="pill">CLI</span>
+              </div>
+              <div class="project__links">
+                <a class="btn btn--solid" href="https://github.com/yourname/marginalia">Source code →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---- Project 4 ---- -->
+        <article class="project">
+          <button class="project__toggle" aria-expanded="false">
+            <span>
+              <span class="project__name">Dormcast</span>
+            </span>
+            <span style="display:flex; align-items:center; gap: var(--s3);">
+              <span class="project__when">2023</span>
+              <span class="project__sign">+</span>
+            </span>
+          </button>
+          <div class="project__detail">
+            <div class="project__detail-inner">
+              <p>
+                My first real project: a tiny site that tells my dorm floor whether the
+                laundry machines are free. Sensors were duct tape and hope, but it worked,
+                and people actually used it.
+              </p>
+              <div class="tag-row">
+                <span class="pill">JavaScript</span>
+                <span class="pill">Node.js</span>
+                <span class="pill">Raspberry Pi</span>
+              </div>
+              <div class="project__links">
+                <a class="btn btn--solid" href="https://github.com/yourname/dormcast">Source code →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER (identical on every page) ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="folio">Let's talk</p>
+        <p class="footer__big">Always up for a good problem.<br>Say hello.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="mailto:&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;">&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;</a>
+        <a href="mailto:&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>
+        <a href="resume.html">Resume (PDF)</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <a href="https://github.com/KeshavSingh-0">GitHub</a>
+        <a href="https://www.linkedin.com/in/keshav-singh-74254b288">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Keshav Singh</span>
+      <span>San Antonio, TX & Austin, TX·</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

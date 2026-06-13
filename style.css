@@ -1,98 +1,529 @@
-/* Basic styles - started learning CSS! */
+/* =====================================================================
+   style.css  —  one stylesheet for the whole site
+   ---------------------------------------------------------------------
+   You almost never need to touch this file. To change words or images,
+   open the .html files instead. This file controls colors, fonts and
+   spacing. The named values below ("design tokens") are the only things
+   you'd realistically want to tweak — change a hex code here and it
+   updates everywhere on the site.
+   ===================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap');
+/* ---------- 1. DESIGN TOKENS (the whole palette lives here) ---------- */
+:root {
+  /* Colors */
+  --ink:       #0B0E15;   /* page background — "Obsidian Cobalt" */
+  --panel:     #171C28;   /* cards & raised surfaces — "Graphite Slate" */
+  --chalk:     #F3F0E9;   /* main text — "Warm Chalk" */
+  --cobalt:    #1A4AAD;   /* solid accent fills — "Signal Cobalt" */
+  --bright:    #4D82F0;   /* links & thin lines — "Bright Cobalt" */
+  --beacon:    #E2722B;   /* hovers & highlights — "Burnt Beacon" */
+  --grey:      #8A93A6;   /* small metadata text — "Cool Grey" */
+  --hairline:  rgba(138, 147, 166, 0.12);  /* faint divider lines */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  /* Type families */
+  --font-display: 'Bricolage Grotesque', sans-serif;  /* big headings */
+  --font-body:    'Hanken Grotesk', sans-serif;        /* paragraphs */
+  --font-mono:    'JetBrains Mono', monospace;          /* labels / data */
+
+  /* Spacing — everything snaps to an 8px rhythm */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 40px;
+  --s5: 64px;
+  --s6: 96px;
+
+  /* Corner rounding */
+  --r-panel: 8px;
+  --r-btn:   6px;
+  --r-pill:  999px;
+
+  /* Width of the centered content column */
+  --measure: 1180px;
 }
+
+/* ---------- 2. RESET ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Lexend', sans-serif;
-    color: #333;
-    background-color: #fff;
-    line-height: 1.6;
-}
-
-header {
-    background-color: #1a4aad;
-    color: white;
-    padding: 20px 40px;
-}
-
-header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-header p {
-    font-size: 1rem;
-    font-weight: 300;
-    margin-top: 4px;
-    opacity: 0.9;
-}
-
-nav {
-    margin-top: 12px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    font-weight: 400;
-    font-size: 0.95rem;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-h2 {
-    color: #1a4aad;
-    margin-bottom: 12px;
-    margin-top: 32px;
-}
-
-p {
-    margin-bottom: 16px;
-    color: #444;
-}
-
-ul {
-    padding-left: 20px;
-    margin-bottom: 16px;
-}
-
-li {
-    margin-bottom: 8px;
-    color: #444;
-}
-
-a {
-    color: #1a4aad;
-}
-
-footer {
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding: 20px 40px;
-    text-align: center;
-    color: #777;
-    font-size: 0.9rem;
-    margin-top: 60px;
-}
-
-.index-subhead {
-  font-size: 16px;
-  color: #fff;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.0625rem;        /* 17px */
   line-height: 1.6;
-  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+/* ---------- 3. TYPOGRAPHY SCALE ---------- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+h2 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; letter-spacing: -0.01em; }
+
+p { max-width: 60ch; }
+
+/* The mono "folio" label — used for eyebrows, indexes, dates, tags */
+.folio {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* ---------- 4. LAYOUT HELPERS ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--s3);
+}
+
+.section { padding-block: var(--s6); }
+.section--tight { padding-block: var(--s5); }
+
+.divider { height: 1px; background: var(--hairline); border: 0; }
+
+/* Asymmetric two-column editorial grid:
+   a narrow mono margin on the left, the real content on the right. */
+.editorial {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--s5);
+  align-items: start;
+}
+
+/* ---------- 5. NAVBAR (identical on every page) ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.nav__inner {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--s2) var(--s3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+.nav__brand span {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--grey);
+  letter-spacing: 0.08em;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--s4);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+}
+.nav__links a {
+  color: var(--grey);
+  padding-block: 4px;
+  position: relative;
+  transition: color 0.18s ease;
+}
+.nav__links a:hover { color: var(--chalk); }
+
+/* The page you're currently on lights up (set by main.js) */
+.nav__links a.is-active { color: var(--chalk); }
+.nav__links a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1.5px;
+  background: var(--beacon);
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav__toggle {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--chalk);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-btn);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+/* ---------- 6. MOBILE MENU OVERLAY ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s2);
+  padding: var(--s4);
+  /* hidden by default; main.js flips the data attribute */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+.overlay[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.overlay a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 9vw, 3rem);
+  letter-spacing: -0.02em;
+  color: var(--chalk);
+  transition: color 0.18s ease;
+}
+.overlay a:hover { color: var(--beacon); }
+.overlay__close {
+  position: absolute;
+  top: var(--s3); right: var(--s3);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--grey);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-btn);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.overlay__index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--grey);
+  margin-right: var(--s2);
+}
+
+/* ---------- 7. BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  padding: 12px 20px;
+  border-radius: var(--r-btn);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--solid { background: var(--cobalt); color: var(--chalk); }
+.btn--solid:hover { background: var(--beacon); }
+
+.btn--ghost { border-color: var(--hairline); color: var(--chalk); }
+.btn--ghost:hover { border-color: var(--beacon); color: var(--beacon); }
+
+/* ---------- 8. LINKS & PILLS ---------- */
+.link {
+  color: var(--bright);
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.link:hover { color: var(--beacon); border-color: var(--beacon); }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--bright);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-pill);
+  padding: 4px 12px;
+}
+
+/* ---------- 9. PANELS / CARDS ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-panel);
+  padding: var(--s4);
+}
+
+/* =====================================================================
+   PAGE-SPECIFIC PIECES
+   ===================================================================== */
+
+/* ---------- HERO (home page) ---------- */
+.hero { padding-block: var(--s6) var(--s5); }
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--s5);
+  align-items: end;
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 13vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+.hero__name em {
+  font-style: normal;
+  color: var(--bright);
+}
+.hero__hook { margin-top: var(--s3); font-size: 1.25rem; max-width: 38ch; }
+.hero__hook b { color: var(--chalk); font-weight: 500; }
+
+/* Portrait placeholder block */
+.portrait {
+  aspect-ratio: 4 / 5;
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-panel);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--s3);
+  position: relative;
+  overflow: hidden;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.portrait span {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+
+/* ---------- DIRECTORY PORTAL (home page) ---------- */
+.portal { display: grid; gap: 0; border-top: 1px solid var(--hairline); }
+.portal__row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  gap: var(--s3);
+  padding-block: var(--s4);
+  border-bottom: 1px solid var(--hairline);
+  transition: padding-left 0.22s ease, background 0.22s ease;
+}
+.portal__row:hover { padding-left: var(--s3); background: var(--panel); }
+.portal__num { font-family: var(--font-mono); font-size: 0.875rem; color: var(--grey); }
+.portal__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  transition: color 0.18s ease;
+}
+.portal__row:hover .portal__title { color: var(--beacon); }
+.portal__meta { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); }
+
+/* ---------- ABOUT modules ---------- */
+.module { margin-bottom: var(--s5); }
+.module__head { display: flex; align-items: baseline; gap: var(--s2); margin-bottom: var(--s3); }
+.module__num { font-family: var(--font-mono); color: var(--bright); font-size: 0.875rem; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--s4);
+  padding-block: var(--s3);
+  border-top: 1px solid var(--hairline);
+}
+.entry__when { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); }
+.entry__role { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
+.entry__place { color: var(--bright); font-size: 0.95rem; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s2); }
+
+/* ---------- PROJECTS ---------- */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s3);
+}
+/* Make the first card span wide for an asymmetric feel */
+.proj-grid > .project:nth-child(1) { grid-column: 1 / -1; }
+
+.project {
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-panel);
+  overflow: hidden;
+}
+.project__toggle {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--chalk);
+  cursor: pointer;
+  padding: var(--s4);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  font-family: inherit;
+}
+.project__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: -0.02em;
+  transition: color 0.18s ease;
+}
+.project__toggle:hover .project__name { color: var(--beacon); }
+.project__when { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); white-space: nowrap; }
+.project__sign {                       /* the little +/- marker */
+  font-family: var(--font-mono);
+  color: var(--bright);
+  font-size: 1.25rem;
+  transition: transform 0.22s ease, color 0.18s ease;
+}
+.project__toggle[aria-expanded="true"] .project__sign { transform: rotate(45deg); color: var(--beacon); }
+
+/* The detail panel slides open. It's collapsed by default. */
+.project__detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s ease;
+}
+.project__detail-inner {
+  padding: 0 var(--s4) var(--s4);
+  border-top: 1px solid var(--hairline);
+}
+.project__detail-inner p { margin-top: var(--s3); }
+.project__links { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+
+/* ---------- RESUME ---------- */
+.resume { min-height: 62vh; display: grid; place-items: center; text-align: center; }
+.resume__inner { max-width: 640px; }
+.resume__title { font-size: clamp(2.5rem, 8vw, 5rem); }
+.resume__cta { margin-top: var(--s4); display: flex; gap: var(--s2); justify-content: center; flex-wrap: wrap; }
+
+/* ---------- NEWS TIMELINE ---------- */
+.timeline { border-left: 1px solid var(--hairline); margin-left: 8px; }
+.log {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--s4);
+  padding: var(--s4) 0 var(--s4) var(--s4);
+  position: relative;
+}
+.log::before {                          /* the dot on the line */
+  content: "";
+  position: absolute;
+  left: -5px; top: calc(var(--s4) + 6px);
+  width: 9px; height: 9px;
+  border-radius: var(--r-pill);
+  background: var(--bright);
+}
+.log:hover::before { background: var(--beacon); }
+.log__date { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--grey); }
+.log__title { font-family: var(--font-display); font-weight: 600; font-size: 1.375rem; margin-bottom: 6px; }
+.log__kind {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bright);
+}
+
+/* ---------- FOOTER (identical on every page) ---------- */
+.footer { border-top: 1px solid var(--hairline); margin-top: var(--s6); }
+.footer__inner {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--s5) var(--s3);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--s4);
+}
+.footer__big {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  letter-spacing: -0.02em;
+}
+.footer__col h4 { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-bottom: var(--s2); }
+.footer__col a { display: block; padding: 4px 0; color: var(--bright); transition: color 0.18s ease; }
+.footer__col a:hover { color: var(--beacon); }
+.footer__base {
+  border-top: 1px solid var(--hairline);
+  padding: var(--s3);
+  max-width: var(--measure);
+  margin-inline: auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+/* =====================================================================
+   RESPONSIVE  —  collapses the asymmetric grids on small screens
+   ===================================================================== */
+@media (max-width: 860px) {
+  .nav__links { display: none; }        /* swap desktop links for hamburger */
+  .nav__toggle { display: inline-block; }
+
+  .hero__grid,
+  .editorial,
+  .proj-grid,
+  .entry,
+  .log,
+  .footer__inner { grid-template-columns: 1fr; }
+
+  .proj-grid > .project:nth-child(1) { grid-column: auto; }
+
+  .portal__row { grid-template-columns: 48px 1fr; }
+  .portal__meta { display: none; }
+
+  .log::before { display: none; }
+  .timeline { border-left: 0; margin-left: 0; }
+
+  .section { padding-block: var(--s5); }
+}
+
+/* ---------- Accessibility niceties ---------- */
+:focus-visible { outline: 2px solid var(--beacon); outline-offset: 3px; border-radius: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
 }

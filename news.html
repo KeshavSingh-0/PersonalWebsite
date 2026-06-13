@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keshav Singh — Portfolio</title>
+  <title>News — Keshav Singh</title>
 
-  <!-- Google Fonts: Bricolage Grotesque (headings), Hanken Grotesk (body), JetBrains Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,14 +13,10 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVBAR — keep this block identical on every page
-       ============================================================ -->
+  <!-- ============ NAVBAR (identical on every page) ============ -->
   <header class="nav">
     <div class="nav__inner">
-      <!-- Change your name / brand text here -->
       <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
-
       <nav class="nav__links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -29,12 +24,9 @@
         <a href="resume.html">Resume</a>
         <a href="news.html">News</a>
       </nav>
-
       <button class="nav__toggle" aria-label="Open menu">menu</button>
     </div>
   </header>
-
-  <!-- Fullscreen menu that appears on phones -->
   <div class="overlay" data-open="false">
     <button class="overlay__close" aria-label="Close menu">close</button>
     <a href="index.html"><span class="overlay__index">01</span>Home</a>
@@ -44,64 +36,74 @@
     <a href="news.html"><span class="overlay__index">05</span>News</a>
   </div>
 
-  <main>
+  <main class="wrap">
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero wrap">
-      <p class="folio">Computer Science · Data Science · UT Austin</p>
-      <div class="hero__grid">
-        <div>
-          <!-- Your name. The part inside <em> is the colored line. -->
-          <h1 class="hero__name">Keshav<br><em>Singh</em></h1>
-
-          <!-- Three-sentence intro. Keep it sharp and personal. -->
-          <p class="hero__hook">
-            I'm a third-year CS student at UT Austin who likes <b>data</b> a little more than it likes me back.
-            I build small, careful tools that turn messy numbers into something a person can actually read.
-            Right now I'm hunting for a summer internship where I get to break things and then fix them better.
-          </p>
-        </div>
-
-        <!-- PORTRAIT PLACEHOLDER -->
-        <div class="portrait">
-          <!-- To use a real photo: uncomment the <img> line below and point
-               src at your image (e.g. images/portrait.jpg), then delete the <span>. -->
-          <!-- <img src="images/portrait.jpg" alt="Keshav Singh" /> -->
-          <span>[ your portrait — 4:5 ratio ]</span>
-        </div>
-      </div>
+    <section class="section--tight">
+      <p class="folio">News &amp; updates · newest first</p>
+      <h2 style="margin-top: var(--s2); max-width: 14ch;">What I'm up to lately.</h2>
     </section>
 
-    <hr class="divider" />
+    <!-- =====================================================
+         TIMELINE
+         To add an update: copy one <div class="log"> block and
+         change the date, kind, title, and text. Keep newest at the top.
+         ===================================================== -->
+    <section class="section--tight" style="padding-top: 0;">
+      <div class="timeline">
 
-    <!-- ===================== DIRECTORY PORTAL ===================== -->
-    <section class="section wrap">
-      <p class="folio">Index — where to next</p>
-      <div class="portal" style="margin-top: var(--s4);">
+        <div class="log">
+          <div class="log__date">Jun 2026</div>
+          <div>
+            <p class="log__kind">Career</p>
+            <p class="log__title">Signed a summer internship offer</p>
+            <p>Joining a data team for the summer. Specifics soon, but I'm equal parts thrilled and terrified, which feels about right.</p>
+          </div>
+        </div>
 
-        <a class="portal__row" href="about.html">
-          <span class="portal__num">01</span>
-          <span class="portal__title">About</span>
-          <span class="portal__meta">the long version</span>
-        </a>
+        <div class="log">
+          <div class="log__date">Apr 2026</div>
+          <div>
+            <p class="log__kind">Project</p>
+            <p class="log__title">Shipped Tempo v2</p>
+            <p>Rewrote the focus tracker from scratch after a year of using my own buggy first version. It's faster and lies to me less.</p>
+          </div>
+        </div>
 
-        <a class="portal__row" href="projects.html">
-          <span class="portal__num">02</span>
-          <span class="portal__title">Projects</span>
-          <span class="portal__meta">things I built</span>
-        </a>
+        <div class="log">
+          <div class="log__date">Feb 2026</div>
+          <div>
+            <p class="log__kind">Academic</p>
+            <p class="log__title">Made the Dean's List again</p>
+            <p>Three semesters running. The machine learning course nearly broke the streak, and me.</p>
+          </div>
+        </div>
 
-        <a class="portal__row" href="resume.html">
-          <span class="portal__num">03</span>
-          <span class="portal__title">Resume</span>
-          <span class="portal__meta">one PDF, no fluff</span>
-        </a>
+        <div class="log">
+          <div class="log__date">Oct 2025</div>
+          <div>
+            <p class="log__kind">Award</p>
+            <p class="log__title">2nd place at HackTX</p>
+            <p>Built Tempo in 36 caffeinated hours with three friends. We slept under a folding table. Worth it.</p>
+          </div>
+        </div>
 
-        <a class="portal__row" href="news.html">
-          <span class="portal__num">04</span>
-          <span class="portal__title">News</span>
-          <span class="portal__meta">recent happenings</span>
-        </a>
+        <div class="log">
+          <div class="log__date">Jun 2025</div>
+          <div>
+            <p class="log__kind">Career</p>
+            <p class="log__title">Started at Northwind Analytics</p>
+            <p>First real industry internship. Learned that production data is much messier than anything they hand you in class.</p>
+          </div>
+        </div>
+
+        <div class="log">
+          <div class="log__date">Jan 2025</div>
+          <div>
+            <p class="log__kind">Personal</p>
+            <p class="log__title">Ran my first half marathon</p>
+            <p>13.1 miles around Austin. Finished slower than I hoped and happier than I expected.</p>
+          </div>
+        </div>
 
       </div>
     </section>

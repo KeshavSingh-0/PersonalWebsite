@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keshav Singh — Portfolio</title>
+  <title>Resume — Keshav Singh</title>
 
-  <!-- Google Fonts: Bricolage Grotesque (headings), Hanken Grotesk (body), JetBrains Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,14 +13,10 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVBAR — keep this block identical on every page
-       ============================================================ -->
+  <!-- ============ NAVBAR (identical on every page) ============ -->
   <header class="nav">
     <div class="nav__inner">
-      <!-- Change your name / brand text here -->
       <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
-
       <nav class="nav__links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -29,12 +24,9 @@
         <a href="resume.html">Resume</a>
         <a href="news.html">News</a>
       </nav>
-
       <button class="nav__toggle" aria-label="Open menu">menu</button>
     </div>
   </header>
-
-  <!-- Fullscreen menu that appears on phones -->
   <div class="overlay" data-open="false">
     <button class="overlay__close" aria-label="Close menu">close</button>
     <a href="index.html"><span class="overlay__index">01</span>Home</a>
@@ -44,68 +36,30 @@
     <a href="news.html"><span class="overlay__index">05</span>News</a>
   </div>
 
-  <main>
+  <main class="wrap">
+    <section class="resume">
+      <div class="resume__inner">
+        <p class="folio">Resume · PDF · updated June 2026</p>
+        <h1 class="resume__title" style="margin-top: var(--s2);">One page.<br>No filler.</h1>
+        <p style="margin: var(--s3) auto 0;">
+          The whole thing on a single sheet: education, the internships, a few projects,
+          and the languages I'm actually comfortable in. Grab a copy below.
+        </p>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero wrap">
-      <p class="folio">Computer Science · Data Science · UT Austin</p>
-      <div class="hero__grid">
-        <div>
-          <!-- Your name. The part inside <em> is the colored line. -->
-          <h1 class="hero__name">Keshav<br><em>Singh</em></h1>
-
-          <!-- Three-sentence intro. Keep it sharp and personal. -->
-          <p class="hero__hook">
-            I'm a third-year CS student at UT Austin who likes <b>data</b> a little more than it likes me back.
-            I build small, careful tools that turn messy numbers into something a person can actually read.
-            Right now I'm hunting for a summer internship where I get to break things and then fix them better.
-          </p>
+        <div class="resume__cta">
+          <!-- Point this href at your real PDF file. The "download" word
+               makes the browser save it instead of just opening it.
+               Put the PDF in the same folder, named resume.pdf. -->
+          <a class="btn btn--solid" href="resume.pdf" download>Download resume (PDF) ↓</a>
+          <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">View in browser →</a>
         </div>
 
-        <!-- PORTRAIT PLACEHOLDER -->
-        <div class="portrait">
-          <!-- To use a real photo: uncomment the <img> line below and point
-               src at your image (e.g. images/portrait.jpg), then delete the <span>. -->
-          <!-- <img src="images/portrait.jpg" alt="Keshav Singh" /> -->
-          <span>[ your portrait — 4:5 ratio ]</span>
-        </div>
+        <p class="folio" style="margin-top: var(--s4);">
+          Prefer the short version? The
+          <a class="link" href="about.html">About page</a> has the highlights.
+        </p>
       </div>
     </section>
-
-    <hr class="divider" />
-
-    <!-- ===================== DIRECTORY PORTAL ===================== -->
-    <section class="section wrap">
-      <p class="folio">Index — where to next</p>
-      <div class="portal" style="margin-top: var(--s4);">
-
-        <a class="portal__row" href="about.html">
-          <span class="portal__num">01</span>
-          <span class="portal__title">About</span>
-          <span class="portal__meta">the long version</span>
-        </a>
-
-        <a class="portal__row" href="projects.html">
-          <span class="portal__num">02</span>
-          <span class="portal__title">Projects</span>
-          <span class="portal__meta">things I built</span>
-        </a>
-
-        <a class="portal__row" href="resume.html">
-          <span class="portal__num">03</span>
-          <span class="portal__title">Resume</span>
-          <span class="portal__meta">one PDF, no fluff</span>
-        </a>
-
-        <a class="portal__row" href="news.html">
-          <span class="portal__num">04</span>
-          <span class="portal__title">News</span>
-          <span class="portal__meta">recent happenings</span>
-        </a>
-
-      </div>
-    </section>
-
   </main>
 
   <!-- ============ FOOTER (identical on every page) ============ -->

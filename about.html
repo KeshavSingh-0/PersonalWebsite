@@ -1,32 +1,230 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Keshav Singh</title>
 
-<html>
-<head>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Keshav Singh | About</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <h1>About Me</h1>
 
-    <nav>
-            <a href="index.html">Home</a> |
-            <a href="about.html">About</a>
-    </nav>
-    
-    </header>
+  <!-- ============ NAVBAR (identical on every page) ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">Keshav Singh <span>/ portfolio</span></a>
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="news.html">News</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Open menu">menu</button>
+    </div>
+  </header>
+  <div class="overlay" data-open="false">
+    <button class="overlay__close" aria-label="Close menu">close</button>
+    <a href="index.html"><span class="overlay__index">01</span>Home</a>
+    <a href="about.html"><span class="overlay__index">02</span>About</a>
+    <a href="projects.html"><span class="overlay__index">03</span>Projects</a>
+    <a href="resume.html"><span class="overlay__index">04</span>Resume</a>
+    <a href="news.html"><span class="overlay__index">05</span>News</a>
+  </div>
 
-    
-    <main>
-        <p>I'm building projects using Git, GitHub, and other tools.</p>
+  <main class="wrap">
 
-        <p>I'm passionate about building meaningful applications and experiences that enhance our understanding of the world.</p>
-    </main>
-    
-    
+    <!-- ===== Page intro ===== -->
+    <section class="section--tight">
+      <p class="folio">About</p>
+      <h2 style="margin-top: var(--s2); max-width: 18ch;">The slightly longer story.</h2>
+      <p style="margin-top: var(--s3); font-size: 1.2rem;">
+        I grew up taking apart things I wasn't supposed to. These days the things are
+        mostly software, and I mostly put them back together. Here's the rundown.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Module 01: Education ===== -->
+    <section class="section--tight">
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num">01</span>
+          <h3>Education</h3>
+        </div>
+
+        <!-- One <div class="entry"> per school. Copy a block to add another. -->
+        <div class="entry">
+          <div class="entry__when">2023 — 2027 (expected)</div>
+          <div>
+            <p class="entry__role">B.S. Computer Science</p>
+            <p class="entry__place">The University of Texas at Austin</p>
+            <p style="margin-top: var(--s1);">
+              Data Science concentration. I spend most of my electives on machine learning,
+              databases, and the surprisingly deep art of making a chart not lie.
+            </p>
+            <div class="tag-row">
+              <span class="pill">GPA 3.9</span>
+              <span class="pill">Dean's List</span>
+              <span class="pill">Data Science track</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Module 02: Experience ===== -->
+    <section class="section--tight">
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num">02</span>
+          <h3>Experience &amp; Internships</h3>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">Summer 2025</div>
+          <div>
+            <p class="entry__role">Data Science Intern</p>
+            <p class="entry__place">Northwind Analytics</p>
+            <p style="margin-top: var(--s1);">
+              Built an internal dashboard that cut a weekly reporting chore from four hours
+              to about ten minutes. The team still uses it, which is the part I'm proud of.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">2024 — present</div>
+          <div>
+            <p class="entry__role">Undergraduate Research Assistant</p>
+            <p class="entry__place">UT Austin · Machine Learning Lab</p>
+            <p style="margin-top: var(--s1);">
+              Cleaning and labeling datasets for a model that predicts traffic patterns.
+              Roughly 80% of the job is data hygiene, and I've made peace with that.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Module 03: Leadership ===== -->
+    <section class="section--tight">
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num">03</span>
+          <h3>Leadership &amp; Organizations</h3>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">2024 — present</div>
+          <div>
+            <p class="entry__role">Workshop Lead</p>
+            <p class="entry__place">Women in Computing @ UT</p>
+            <p style="margin-top: var(--s1);">
+              Run a monthly intro-to-Python night for first-years. Watching someone's
+              first program print "hello" never really gets old.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">2023 — present</div>
+          <div>
+            <p class="entry__role">Member</p>
+            <p class="entry__place">Texas Data Science Society</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Module 04: Awards ===== -->
+    <section class="section--tight">
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num">04</span>
+          <h3>Awards &amp; Honors</h3>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">2025</div>
+          <div>
+            <p class="entry__role">2nd Place — HackTX</p>
+            <p class="entry__place">UT Austin's annual hackathon</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry__when">2024</div>
+          <div>
+            <p class="entry__role">Undergraduate Research Fellowship</p>
+            <p class="entry__place">College of Natural Sciences</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Module 05: Hobbies ===== -->
+    <section class="section--tight">
+      <div class="module" style="margin-bottom: 0;">
+        <div class="module__head">
+          <span class="module__num">05</span>
+          <h3>Outside the terminal</h3>
+        </div>
+        <p>
+          When I'm not staring at a screen: long runs along Lady Bird Lake, an ongoing and
+          mostly losing battle with sourdough, and a film-photography habit I can't quite justify
+          financially. I also collect mechanical keyboards, which my roommates have asked me to stop
+          talking about.
+        </p>
+        <div class="tag-row" style="margin-top: var(--s3);">
+          <span class="pill">Running</span>
+          <span class="pill">Film photography</span>
+          <span class="pill">Sourdough</span>
+          <span class="pill">Keyboards</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER (identical on every page) ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="folio">Let's talk</p>
+        <p class="footer__big">Always up for a good problem.<br>Say hello.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="mailto:&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;">&#x6b;&#x73;&#x36;&#x32;&#x38;&#x35;&#x32;&#x40;&#x6d;&#x79;&#x2e;&#x75;&#x74;&#x65;&#x78;&#x61;&#x73;&#x2e;&#x65;&#x64;&#x75;</a>
+        <a href="mailto:&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x6b;&#x65;&#x73;&#x68;&#x61;&#x76;&#x5f;&#x75;&#x73;&#x5f;&#x73;&#x69;&#x6e;&#x67;&#x68;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>
+        <a href="resume.html">Resume (PDF)</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <a href="https://github.com/KeshavSingh-0">GitHub</a>
+        <a href="https://www.linkedin.com/in/keshav-singh-74254b288">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Keshav Singh</span>
+      <span>San Antonio, TX & Austin, TX·</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
