@@ -410,7 +410,6 @@ p { max-width: 60ch; }
   margin-top: var(--s3);
 }
 
-
 /* ---------- PROJECTS ---------- */
 .proj-grid {
   display: grid;
