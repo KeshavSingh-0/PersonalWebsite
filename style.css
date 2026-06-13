@@ -1,0 +1,91 @@
+/* Basic styles - started learning CSS! */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1a4aad;
+    color: white;
+    padding: 20px 40px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+nav {
+    margin-top: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #1a4aad;
+    margin-bottom: 12px;
+    margin-top: 32px;
+}
+
+p {
+    margin-bottom: 16px;
+    color: #444;
+}
+
+ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+a {
+    color: #1a4aad;
+}
+
+footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 20px 40px;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
