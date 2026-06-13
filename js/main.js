@@ -17,7 +17,14 @@
    tiny preview server — see README.txt for the one-line command.
    ===================================================================== */
 
-document.addEventListener('DOMContentLoaded', function () {
+(function() {
+  var link = document.createElement('link');
+  link.rel = 'icon';
+  link.href = '../assets/favicon.png';
+  document.head.appendChild(link);
+})();
+
+   document.addEventListener('DOMContentLoaded', function () {
 
   // Pages live in /pages, partials live in /partials — so we go up one level.
   var PARTIALS = '../partials/';
